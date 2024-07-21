@@ -1,3 +1,6 @@
+import Footer from "@/components/Footer";
+import IconProvider from "@/components/IconProvider";
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -16,7 +19,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <IconProvider>
+          <Navbar />
+
+          <div
+            className="flex justify-between flex-col"
+            style={{ height: "90vh" }}
+          >
+            {children}
+            <Footer />
+          </div>
+        </IconProvider>
+      </body>
     </html>
   );
 }
